@@ -26,7 +26,7 @@ export function AdminPage() {
 			return;
 		}
 
-		if (user.type !== "tutor") {
+		if (!user.isAdmin) {
 			navigate("/");
 			return;
 		}

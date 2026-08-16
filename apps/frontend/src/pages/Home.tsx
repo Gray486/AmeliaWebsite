@@ -28,7 +28,7 @@ export function HomePage() {
 						<span className={styles.badge}>{user.type}</span>
 					</div>
 					<div className={styles.actions}>
-						{user.type === "tutor" && (
+						{user.isAdmin && (
 							<button
 								type="button"
 								onClick={() => navigate("/admin")}

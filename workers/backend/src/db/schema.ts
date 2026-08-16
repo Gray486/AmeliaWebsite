@@ -9,6 +9,7 @@ export const users = sqliteTable(
 		firstName: text("first_name").notNull(),
 		lastName: text("last_name").notNull(),
 		type: text("type").notNull(), // 'tutor' or 'student'
+		isAdmin: integer("is_admin").notNull().default(0),
 		googleId: text("google_id").notNull().unique(),
 		createdAt: integer("created_at").notNull(),
 	},

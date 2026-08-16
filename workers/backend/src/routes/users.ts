@@ -43,6 +43,7 @@ export const usersRouter = new Hono<AppEnv>()
 				firstName: user.firstName,
 				lastName: user.lastName,
 				type: user.type,
+				isAdmin: user.isAdmin === 1,
 			},
 		});
 	});

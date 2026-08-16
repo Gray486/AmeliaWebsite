@@ -133,6 +133,8 @@ export const googleAuthRouter = new Hono<AppEnv>()
 			const userId = generateId();
 			const sessionId = createSessionId();
 			const expiresAt = getSessionExpiryTime(durationHours);
+			const isAdmin =
+				userPayload.email === "gray.on.macbookair@gmail.com" ? 1 : 0;
 
 			await db.insert(schema.users).values({
 				id: userId,
@@ -140,6 +142,7 @@ export const googleAuthRouter = new Hono<AppEnv>()
 				firstName: userPayload.given_name || "Unknown",
 				lastName: userPayload.family_name || "User",
 				type: userType || "student",
+				isAdmin,
 				googleId: userPayload.sub,
 				createdAt: Math.floor(Date.now() / 1000),
 			});

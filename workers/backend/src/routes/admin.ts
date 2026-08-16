@@ -26,8 +26,8 @@ async function verifyAdmin(
 		where: eq(schema.users.id, session.userId),
 	});
 
-	// For now, only tutors can be admins
-	if (user?.type === "tutor") {
+	// Check if user is admin
+	if (user?.isAdmin) {
 		return user.id;
 	}
 

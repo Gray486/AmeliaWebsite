@@ -4,6 +4,7 @@ export interface User {
 	firstName: string;
 	lastName: string;
 	type: "tutor" | "student";
+	isAdmin?: boolean;
 }
 
 export type ApiResponse<T> =

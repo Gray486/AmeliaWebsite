@@ -5,6 +5,7 @@ CREATE TABLE users (
 	first_name TEXT NOT NULL,
 	last_name TEXT NOT NULL,
 	type TEXT NOT NULL CHECK (type IN ('tutor', 'student')),
+	is_admin INTEGER NOT NULL DEFAULT 0,
 	google_id TEXT NOT NULL UNIQUE,
 	created_at INTEGER NOT NULL
 );
