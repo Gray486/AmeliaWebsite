@@ -1,12 +1,38 @@
-name = 'ameliawebsite-backend'
+name = "amelia-backend"
 main = "src/index.ts"
 compatibility_date = "2026-05-17"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "amelia-local"
+database_id = "00000000-0000-0000-0000-000000000001"
+migrations_dir = "src/db/migrations"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "00000000000000000000000000000001"
+
 [vars]
 FRONTEND_URL = "http://localhost:5173"
+GOOGLE_CLIENT_ID = "280506459971-6livmr8mchngdq9jmpsoul98tgo3qs0o.apps.googleusercontent.com"
+GOOGLE_REDIRECT_URI = "http://localhost:8787/auth/google/callback"
+SESSION_DURATION_HOURS = "168"
 
 [env.production]
 name = "amelia-backend-production"
 
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "amelia-prod"
+database_id = "00000000-0000-0000-0000-000000000002"
+migrations_dir = "src/db/migrations"
+
+[[env.production.kv_namespaces]]
+binding = "KV"
+id = "00000000000000000000000000000002"
+
 [env.production.vars]
 FRONTEND_URL = "https://amelia.example.com"
+GOOGLE_CLIENT_ID = "280506459971-6livmr8mchngdq9jmpsoul98tgo3qs0o.apps.googleusercontent.com"
+GOOGLE_REDIRECT_URI = "https://api.amelia.example.com/auth/google/callback"
+SESSION_DURATION_HOURS = "168"

@@ -1,26 +1,40 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { adminRouter } from "./routes/admin";
+import { authRouter } from "./routes/auth";
+import { usersRouter } from "./routes/users";
+import type { AppEnv } from "./types";
 
-interface Env {
-	FRONTEND_URL: string;
-}
+const app = new Hono<AppEnv>();
 
-const app = new Hono<{ Bindings: Env }>();
-
-// Enable CORS
-app.use("*", cors());
-
-// Health check
-app.get("/health", (c) => {
-	return c.json({ status: "ok" });
+app.onError((err, c) => {
+	console.error(err);
+	return c.json({ error: "Internal server error" }, 500);
 });
 
-// Example API endpoint
-app.get("/example", (c) => {
-	return c.json({
-		message: "Hello from Amelia Backend",
-		timestamp: new Date().toISOString(),
-	});
-});
+// CORS
+app.use(
+	"*",
+	cors({
+		origin: (origin) => {
+			if (!origin) return null;
+			if (origin === "http://localhost:5173") return origin;
+			if (origin === "http://localhost:3000") return origin;
+			if (origin.startsWith("http://localhost:")) return origin;
+			if (origin.endsWith(".pages.dev")) return origin;
+			return null;
+		},
+		allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+		allowHeaders: ["Content-Type", "Authorization"],
+		credentials: true,
+	}),
+);
 
-export default app;
+// Routes
+const root = app
+	.get("/health", (c) => c.json({ status: "ok", service: "amelia-backend" }))
+	.route("/auth", authRouter)
+	.route("/users", usersRouter)
+	.route("/admin", adminRouter);
+
+export default root;
