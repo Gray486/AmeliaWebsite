@@ -15,9 +15,44 @@ export function LoginPage() {
 
 	return (
 		<div className={styles.container}>
+			<div className={styles.hero}>
+				<div className={styles.heroContent}>
+					<h1 className={styles.heroTitle}>StudentsToStudents</h1>
+					<p className={styles.heroSubtitle}>
+						Connect with peer tutors. Learn together.
+					</p>
+
+					<div className={styles.heroFeatures}>
+						<div className={styles.feature}>
+							<div className={styles.featureIcon}>🎓</div>
+							<div className={styles.featureText}>
+								<h3>For Students</h3>
+								<p>Find experienced peer tutors ready to help you succeed.</p>
+							</div>
+						</div>
+
+						<div className={styles.feature}>
+							<div className={styles.featureIcon}>📚</div>
+							<div className={styles.featureText}>
+								<h3>For Tutors</h3>
+								<p>Share your knowledge and help other students learn.</p>
+							</div>
+						</div>
+
+						<div className={styles.feature}>
+							<div className={styles.featureIcon}>🤝</div>
+							<div className={styles.featureText}>
+								<h3>Community Powered</h3>
+								<p>A peer-to-peer learning network that actually works.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div className={styles.card}>
-				<h1 className={styles.title}>StudentsToStudents</h1>
-				<p className={styles.subtitle}>Peer Tutoring Network</p>
+				<h1 className={styles.title}>Welcome</h1>
+				<p className={styles.subtitle}>Sign in to your account</p>
 
 				{error && <div className={styles.error}>{error}</div>}
 
@@ -55,12 +90,12 @@ export function LoginPage() {
 
 				<div className={styles.info}>
 					<p>
-						<strong>Students:</strong> Sign in with your Google account to find
-						a tutor.
+						<strong>Students:</strong> Any Google account can sign up. Start
+						finding tutors right away.
 					</p>
 					<p>
-						<strong>Tutors:</strong> Your email must be approved by an admin to
-						offer tutoring.
+						<strong>Tutors:</strong> Your email needs approval from an admin to
+						become a tutor.
 					</p>
 				</div>
 			</div>
