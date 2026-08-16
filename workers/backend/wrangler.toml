@@ -1,0 +1,12 @@
+name = "amelia-backend"
+main = "src/index.ts"
+compatibility_date = "2026-05-17"
+
+[vars]
+FRONTEND_URL = "http://localhost:5173"
+
+[env.production]
+name = "amelia-backend-production"
+
+[env.production.vars]
+FRONTEND_URL = "https://amelia.example.com"

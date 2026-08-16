@@ -1,0 +1,14 @@
+packages:
+  - "apps/*"
+  - "workers/*"
+
+# pnpm v10 (Cloudflare Pages CI)
+onlyBuiltDependencies:
+  - "@biomejs/biome"
+  - esbuild
+
+# pnpm v11+ (local)
+allowBuilds:
+  "@biomejs/biome": true
+  esbuild: true
+  workerd: true

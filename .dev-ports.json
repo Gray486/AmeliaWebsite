@@ -1,0 +1,17 @@
+{
+	"apps": {
+		"frontend": {
+			"port": 5173,
+			"name": "Amelia Frontend",
+			"url": "http://localhost:5173"
+		}
+	},
+	"workers": {
+		"backend": {
+			"port": 8787,
+			"inspectorPort": 9229,
+			"name": "Amelia Backend",
+			"url": "http://localhost:8787"
+		}
+	}
+}

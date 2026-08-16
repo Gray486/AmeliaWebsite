@@ -1,0 +1,21 @@
+{
+	"name": "@amelia/backend",
+	"version": "0.0.1",
+	"private": true,
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"dev": "wrangler dev --port 8787 --inspector-port 9229",
+		"deploy": "wrangler deploy",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"hono": "^4.7.0"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250516.0",
+		"typescript": "^5.8.0",
+		"wrangler": "^4.14.0"
+	}
+}
