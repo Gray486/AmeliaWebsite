@@ -96,6 +96,21 @@ export const googleAuthRouter = new Hono<AppEnv>()
 			});
 
 			if (user) {
+				// Check if user should be upgraded to tutor
+				const isTutorApproved =
+					(await db.query.tutorAllowlist.findFirst({
+						where: eq(schema.tutorAllowlist.email, user.email),
+					})) !== undefined;
+
+				// Update user type if they were approved as tutor
+				if (isTutorApproved && user.type === "student") {
+					await db
+						.update(schema.users)
+						.set({ type: "tutor" })
+						.where(eq(schema.users.id, user.id));
+					user.type = "tutor";
+				}
+
 				// User exists, create session
 				const sessionId = createSessionId();
 				const expiresAt = getSessionExpiryTime(durationHours);
