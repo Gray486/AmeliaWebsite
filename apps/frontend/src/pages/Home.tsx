@@ -18,7 +18,7 @@ export function HomePage() {
 	return (
 		<div className={styles.container}>
 			<header className={styles.header}>
-				<h1 className={styles.title}>Amelia</h1>
+				<h1 className={styles.title}>StudentsToStudents</h1>
 				<div className={styles.userSection}>
 					<div className={styles.userInfo}>
 						<p className={styles.userName}>

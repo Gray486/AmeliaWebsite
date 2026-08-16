@@ -32,7 +32,9 @@ app.use(
 
 // Routes
 const root = app
-	.get("/health", (c) => c.json({ status: "ok", service: "amelia-backend" }))
+	.get("/health", (c) =>
+		c.json({ status: "ok", service: "students-to-students-backend" }),
+	)
 	.route("/auth", authRouter)
 	.route("/users", usersRouter)
 	.route("/admin", adminRouter);

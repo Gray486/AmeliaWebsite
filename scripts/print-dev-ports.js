@@ -53,7 +53,7 @@ async function waitForServers(config, timeout = 60000) {
 
 function printServerInfo(config) {
 	console.log(`\n${"=".repeat(60)}`);
-	console.log("  Amelia Website Development Servers");
+	console.log("  StudentsToStudents Development Servers");
 	console.log(`${"=".repeat(60)}\n`);
 
 	console.log("📱 Apps:");
@@ -75,7 +75,7 @@ async function main() {
 	try {
 		const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
-		console.log("🚀 Starting Amelia Website development servers...\n");
+		console.log("🚀 Starting StudentsToStudents development servers...\n");
 
 		// Start the dev servers in background
 		const devProcess = spawn(

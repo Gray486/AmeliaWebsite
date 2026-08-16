@@ -16,8 +16,8 @@ export function LoginPage() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.card}>
-				<h1 className={styles.title}>Amelia</h1>
-				<p className={styles.subtitle}>Student & Tutor Portal</p>
+				<h1 className={styles.title}>StudentsToStudents</h1>
+				<p className={styles.subtitle}>Peer Tutoring Network</p>
 
 				{error && <div className={styles.error}>{error}</div>}
 
@@ -55,12 +55,12 @@ export function LoginPage() {
 
 				<div className={styles.info}>
 					<p>
-						<strong>Students:</strong> Sign in with your Google account to get
-						started.
+						<strong>Students:</strong> Sign in with your Google account to find
+						a tutor.
 					</p>
 					<p>
 						<strong>Tutors:</strong> Your email must be approved by an admin to
-						sign up.
+						offer tutoring.
 					</p>
 				</div>
 			</div>
